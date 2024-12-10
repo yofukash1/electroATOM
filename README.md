@@ -6,10 +6,10 @@
 </p>
 <h1 align="center" style="margin: 0;">ElectroATOM</h1>
 
-<a  style="margin: 0;" target="_blank" href="https://marblism.com">
+<a  style="margin: 0;" target="_blank" href="">
 <p align="center" style="margin: 0; letter-spacing: 3px;
 text-decoration: none;">
-marblism
+Website
 </p>
 </a>
 </div>
@@ -57,5 +57,8 @@ $ pnpm run start
 
 ## Support
 
-We reply FAST on our <a target="_blank" href="https://discord.gg/GScNz7kAEu">Discord server</a>.
+We reply FAST on our <a target="_blank" href="">Telegram channel</a>.
 
+## Developers
+
+Артём Долгов, Артём Носов, Александр Архангельский, Иван Зимин

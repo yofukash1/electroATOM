@@ -1,20 +1,29 @@
-import { Typography, Button, Row, Col, Space, Card } from 'antd'
-const { Title, Paragraph } = Typography
 import { useUserContext } from '@/core/context'
-import dayjs from 'dayjs'
-import { useLocation, useNavigate, useParams } from '@remix-run/react'
-import { useUploadPublic } from '@/plugins/upload/client'
-import { Api } from '@/core/trpc'
 import { PageLayout } from '@/designSystem'
+import { useNavigate } from '@remix-run/react'
+import { Button, Card, Col, Row, Space, Typography } from 'antd'
+const { Title, Paragraph } = Typography
 
 export default function HomePage() {
   const navigate = useNavigate()
   const { isLoggedIn } = useUserContext()
 
-  // Fetch translations for language switching
-  const { data: languages } = Api.language.findMany.useQuery({
-    where: { isActive: true },
-  })
+  // // Fetch translations for language switching
+  // const { data: languages } = Api.language.findMany.useQuery({
+  //   where: { isActive: true },
+  // })
+
+  const languages = [
+    { name: 'Русский' },
+    { name: 'English' },
+    { name: 'Español' },
+    { name: '中文' },
+    { name: '日本語' },
+    { name: 'العربية' },
+  ]
+
+  // Если нужен объект с данными, можно обернуть его так
+  const data = { languages }
 
   // Function to handle language switch
   const handleLanguageSwitch = async (languageCode: string) => {
@@ -41,8 +50,8 @@ export default function HomePage() {
             <Space>
               {languages?.map(lang => (
                 <Button
-                  key={lang.id}
-                  onClick={() => handleLanguageSwitch(lang.code)}
+                // key={lang.id}
+                // onClick={() => handleLanguageSwitch(lang.code)}
                 >
                   {lang.name}
                 </Button>
@@ -61,13 +70,14 @@ export default function HomePage() {
           <Col xs={24} md={12}>
             <Card>
               <Title level={2}>
-                <i className="las la-info-circle"></i> About ElectroATOM
+                <i className="las la-info-circle"></i> Про ElectroATOM
               </Title>
               <Paragraph>
-                ElectroATOM is an innovative project designed to help users
-                understand and predict their electricity consumption patterns.
-                Our platform combines advanced analytics with user-friendly
-                interfaces to provide accurate electricity cost predictions.
+                ElectroATOM — это инновационный проект, созданный для того,
+                чтобы помочь пользователям понять и спрогнозировать цены на
+                электроэнергию. Наша платформа объединяет передовую аналитику с
+                удобными интерфейсами, чтобы предоставлять точные прогнозы
+                затрат на электроэнергию.
               </Paragraph>
             </Card>
           </Col>
@@ -75,24 +85,26 @@ export default function HomePage() {
           <Col xs={24} md={12}>
             <Card>
               <Title level={2}>
-                <i className="las la-chart-line"></i> Prediction Service
+                <i className="las la-chart-line"></i> Cервис прогнозирования цен
+                на электроэнергию
               </Title>
               <Paragraph>
-                Our electricity cost prediction service uses state-of-the-art
-                machine learning algorithms to analyze your consumption patterns
-                and provide accurate cost forecasts. This helps you:
+                Наш сервис прогнозирования затрат на электроэнергию использует
+                передовые алгоритмы машинного обучения для анализа ваших схем
+                потребления и предоставления точных прогнозов расходов. Это
+                помогает:
               </Paragraph>
               <ul>
-                <li>Plan your monthly budget better</li>
-                <li>Identify potential savings opportunities</li>
-                <li>Optimize your electricity usage</li>
+                <li>Лучше планировать месячный бюджет</li>
+                <li>Выявлять потенциальные возможности для экономии затрат</li>
+                <li>Оптимизировать использование электроэнергии</li>
               </ul>
               <Button
                 type="primary"
                 onClick={() => navigate('/prediction')}
                 style={{ marginTop: '1rem' }}
               >
-                <i className="las la-calculator"></i> Try Predictions
+                <i className="las la-calculator"></i> Попробовать
               </Button>
             </Card>
           </Col>
@@ -106,9 +118,9 @@ export default function HomePage() {
                 className="las la-clock la-3x"
                 style={{ color: '#1890ff' }}
               ></i>
-              <Title level={3}>Real-time Analysis</Title>
+              <Title level={3}>Анализ в реальном времени</Title>
               <Paragraph>
-                Get instant insights into your electricity consumption patterns.
+                Получите мгновенные данные об изменении цен на электроэнергии.
               </Paragraph>
             </Card>
           </Col>
@@ -118,9 +130,10 @@ export default function HomePage() {
                 className="las la-shield-alt la-3x"
                 style={{ color: '#52c41a' }}
               ></i>
-              <Title level={3}>Secure Platform</Title>
+              <Title level={3}>Безопасность</Title>
               <Paragraph>
-                Your data is protected with enterprise-grade security measures.
+                Обеспечим высокоуровневую защиту Ваших данных на каждом этапе
+                работы.
               </Paragraph>
             </Card>
           </Col>
@@ -130,9 +143,9 @@ export default function HomePage() {
                 className="las la-hand-holding-usd la-3x"
                 style={{ color: '#faad14' }}
               ></i>
-              <Title level={3}>Cost Savings</Title>
+              <Title level={3}>Экономия</Title>
               <Paragraph>
-                Identify opportunities to reduce your electricity costs.
+                Прогнозируйте свои потребности и экономьте затраты.
               </Paragraph>
             </Card>
           </Col>

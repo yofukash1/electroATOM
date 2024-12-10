@@ -1,8 +1,7 @@
 // import { useUserContext } from '@/core/context'
-import { Link, useLocation, useNavigate, useParams } from '@remix-run/react'
+import { useLocation, useNavigate, useParams } from '@remix-run/react'
 import { Flex } from 'antd'
 import { ReactNode } from 'react'
-import { useUserContext } from '~/core/context'
 import { Leftbar } from './components/Leftbar'
 import { Mobilebar } from './components/Mobilebar'
 import { Topbar } from './components/Topbar'
@@ -24,7 +23,7 @@ export const NavigationLayout: React.FC<Props> = ({ children }) => {
   const items: NavigationItem[] = [
     {
       key: '/home',
-      label: 'Home',
+      label: 'Домой',
       position: 'topbar',
 
       onClick: () => goTo('/home'),
@@ -32,7 +31,7 @@ export const NavigationLayout: React.FC<Props> = ({ children }) => {
 
     {
       key: '/prediction',
-      label: 'Predictions',
+      label: 'Прогнозы',
       position: 'topbar',
 
       onClick: () => goTo('/prediction'),

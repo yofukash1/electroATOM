@@ -67,7 +67,7 @@ export const LandingMobileNavbar = ({ navItems }: any) => {
           <div className="flex flex-row w-full items-start gap-2.5  px-8 py-4 ">
             {isLoggedIn && (
               <LandingButton size="sm" href="/home">
-                Dashboard <ArrowRightOutlined />
+                Личный кабинет <ArrowRightOutlined />
               </LandingButton>
             )}
             {!isLoggedIn && (

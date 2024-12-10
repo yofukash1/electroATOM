@@ -51,7 +51,7 @@ export const Topbar: React.FC<Props> = ({ keySelected, items }) => {
         <Flex align="center" gap="middle">
           {checkRole('ADMIN') && (
             <Tag color="red" bordered={false}>
-              Admin
+              Администратор
             </Tag>
           )}
 

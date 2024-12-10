@@ -69,7 +69,7 @@ export const Mobilebar: React.FC<Props> = ({ keySelected, items }) => {
         <Flex align="center">
           {checkRole('ADMIN') && (
             <Tag color="red" bordered={false}>
-              Admin
+              Администратор
             </Tag>
           )}
 

@@ -1,11 +1,9 @@
-import { Button, Card, Col, Row, Typography, message } from 'antd'
-const { Title, Text } = Typography
 import { useUserContext } from '@/core/context'
-import dayjs from 'dayjs'
-import { useLocation, useNavigate, useParams } from '@remix-run/react'
-import { useUploadPublic } from '@/plugins/upload/client'
 import { Api } from '@/core/trpc'
 import { PageLayout } from '@/designSystem'
+import { Button, Card, Col, Row, Typography, message } from 'antd'
+import dayjs from 'dayjs'
+const { Title, Text } = Typography
 
 export default function PredictionsPage() {
   const { user } = useUserContext()
@@ -23,39 +21,36 @@ export default function PredictionsPage() {
 
   // Create prediction mutation
   const createPrediction = Api.prediction.create.useMutation()
-  const generateImage = Api.ai.generateImage.useMutation()
 
   const handleCreatePrediction = async () => {
     try {
-      // Generate AI image
-      const imageResponse = await generateImage.mutateAsync({
-        prompt: 'A futuristic crystal ball showing mysterious visions',
-      })
+      // Указываем путь к локальному изображению
+      const localImageUrl = '/images/image1.jpg' // замените на фактический путь к вашему изображению
 
-      // Create prediction with generated image
+      // Создаем предсказание с локальным изображением
       await createPrediction.mutateAsync({
         data: {
-          title: 'My Prediction',
-          description: 'A new prediction has been generated',
+          title: 'Мой прогноз',
+          description: 'Новый прогноз был создан:',
           status: 'COMPLETED',
           predictionDate: dayjs().format('YYYY-MM-DD'),
           userId: user?.id || '',
           predictionImages: {
             create: [
               {
-                imageUrl: imageResponse.url,
+                imageUrl: localImageUrl,
                 imageType: 'JPEG',
-                fileSize: 1024,
+                fileSize: 1024, // или используйте фактический размер изображения
               },
             ],
           },
         },
       })
 
-      message.success('Prediction created successfully!')
+      message.success('Успешно!')
       refetch()
     } catch (error) {
-      message.error('Failed to create prediction')
+      message.error('Не удалось создать предсказание')
     }
   }
 
@@ -74,9 +69,9 @@ export default function PredictionsPage() {
         <div style={{ marginBottom: 24, textAlign: 'center' }}>
           <Title level={2}>
             <i className="las la-crystal-ball" style={{ marginRight: 8 }}></i>
-            Your Predictions
+            Ваши прогнозы
           </Title>
-          <Text>View and manage your predictions</Text>
+          <Text>Просмотр и скачивание прогнозов</Text>
         </div>
 
         <div style={{ marginBottom: 24, textAlign: 'center' }}>
@@ -84,10 +79,10 @@ export default function PredictionsPage() {
             type="primary"
             size="large"
             onClick={handleCreatePrediction}
-            loading={createPrediction.isLoading || generateImage.isLoading}
+            loading={createPrediction.isLoading}
             icon={<i className="las la-plus" style={{ marginRight: 8 }}></i>}
           >
-            Create a Prediction
+            Создать
           </Button>
         </div>
 
@@ -121,7 +116,7 @@ export default function PredictionsPage() {
                         )
                       }
                     >
-                      Download
+                      Скачать
                     </Button>,
                   ]}
                 >

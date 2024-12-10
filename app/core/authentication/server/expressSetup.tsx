@@ -1,9 +1,15 @@
-import { Express } from 'express'
+import express, { Express } from 'express'
 import Jwt from 'jsonwebtoken'
 import passport from 'passport'
+import path from 'path'
+import { fileURLToPath } from 'url'
 import { Configuration } from '~/core/configuration'
 import { COOKIE_MAX_AGE, Cookies } from './cookies'
 import { GoogleProvider } from './providers/google.provider'
+
+const __filename = fileURLToPath(import.meta.url)
+
+const __dirname = path.dirname(__filename)
 
 const providers = [GoogleProvider]
 
@@ -12,6 +18,8 @@ export const getProviders = () => {
 }
 
 export const expressSetup = (app: Express) => {
+  app.use('/images', express.static(path.join(__dirname, '../..', 'images')))
+
   app.use(passport.initialize())
 
   getProviders().forEach(provider => passport.use(provider.strategy))
@@ -59,3 +67,6 @@ export const expressSetup = (app: Express) => {
     },
   )
 }
+
+//// Добавляем middleware для статических файлов
+//app.use('/images', express.static(path.join(__dirname, 'public', 'images')))

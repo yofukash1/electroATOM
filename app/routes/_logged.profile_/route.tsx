@@ -70,7 +70,7 @@ export default function ProfilePage() {
       <Flex justify="space-between" align="center">
         <Typography.Title level={1}>Profile</Typography.Title>
         <Button onClick={handleClickLogout} loading={isLoadingLogout}>
-          Logout
+          Выход
         </Button>
       </Flex>
 
@@ -110,7 +110,7 @@ export default function ProfilePage() {
         <Form.Item>
           <Flex justify="end">
             <Button type="primary" htmlType="submit" loading={isLoading}>
-              Save
+              Сохранить
             </Button>
           </Flex>
         </Form.Item>

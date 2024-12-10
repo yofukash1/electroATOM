@@ -69,11 +69,11 @@ export default function LandingPage() {
 
   const navItems = [
     {
-      title: `Features`,
+      title: `Возможности`,
       link: `#features`,
     },
     {
-      title: `Pricing`,
+      title: `Стоимость`,
       link: `#pricing`,
     },
     {
@@ -180,14 +180,14 @@ export default function LandingPage() {
   return (
     <LandingContainer navItems={navItems}>
       <LandingHero
-        title={`Take Control of Your Electricity Costs with AI-Powered Predictions`}
-        subtitle={`Stop guessing your future energy expenses. Get accurate forecasts and save up to 30% on your electricity bills.`}
-        buttonText={`Start Saving Today`}
+        title={`Возьмите под контроль свои расходы на электроэнергию с помощью предсказаний на основе ИИ`}
+        subtitle={`Перестаньте гадать о будущих ценах на электроэнергию. Получайте точные прогнозы и экономьте до 30% на счeтах за электричество`}
+        buttonText={`Начать сейчас`}
         pictureUrl={`https://marblism-dashboard-api--production-public.s3.us-west-1.amazonaws.com/3wwEWj-electroatom-4t0Z`}
         socialProof={
           <LandingSocialRating
-            numberOfUsers={5000}
-            suffixText={`businesses trust ElectroATOM`}
+            numberOfUsers={50}
+            suffixText={`компаний доверяют ElectroATOM`}
           />
         }
       />

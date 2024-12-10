@@ -67,7 +67,7 @@ export default function LoginPage() {
         }}
         gap="middle"
       >
-        <AppHeader description="Welcome!" />
+        <AppHeader description="Добро пожаловать!" />
 
         {errorKey && (
           <Typography.Text type="danger">{errorMessage}</Typography.Text>
@@ -80,7 +80,7 @@ export default function LoginPage() {
           requiredMark={false}
         >
           <Form.Item
-            label="Email"
+            label="Почта"
             name="email"
             rules={[{ required: true, message: 'Email is required' }]}
           >
@@ -88,7 +88,7 @@ export default function LoginPage() {
           </Form.Item>
 
           <Form.Item
-            label="Password"
+            label="Пароль"
             name="password"
             rules={[{ required: true, message: 'Password is required' }]}
           >
@@ -106,14 +106,14 @@ export default function LoginPage() {
                 onClick={() => router('/reset-password')}
                 style={{ padding: 0, margin: 0 }}
               >
-                Forgot password?
+                Забыли пароль?
               </Button>
             </Flex>
           </Form.Item>
 
           <Form.Item>
             <Button type="primary" htmlType="submit" block loading={isLoading}>
-              Sign in
+              Войти
             </Button>
           </Form.Item>
         </Form>
@@ -126,8 +126,8 @@ export default function LoginPage() {
           onClick={() => router('/register')}
         >
           <Flex gap={'small'} justify="center">
-            <Typography.Text type="secondary">No account?</Typography.Text>{' '}
-            <Typography.Text>Sign up</Typography.Text>
+            <Typography.Text type="secondary">Нет аккаунта?</Typography.Text>{' '}
+            <Typography.Text>Создать</Typography.Text>
           </Flex>
         </Button>
       </Flex>

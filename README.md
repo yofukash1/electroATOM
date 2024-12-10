@@ -1,10 +1,10 @@
 <div style="background: black;">
 <p align="center" style="margin: 0;">
   <a href="https://dev.marblism.com" target="blank">
-    <img src="https://marblism-dashboard-api--production-public.s3.us-west-1.amazonaws.com/marblism-logo.png" height="150" alt="Marblism Logo" />
+    <img src="https://png.pngtree.com/png-vector/20220617/ourmid/pngtree-lightning-logo-template-vector-icon-illustration-design-png-image_5118455.png" height="150" alt="ElectroATOM Logo" />
   </a>
 </p>
-<h1 align="center" style="margin: 0;">In Marble We Trust</h1>
+<h1 align="center" style="margin: 0;">ElectroATOM</h1>
 
 <a  style="margin: 0;" target="_blank" href="https://marblism.com">
 <p align="center" style="margin: 0; letter-spacing: 3px;
@@ -17,7 +17,7 @@ marblism
 
 ## Documentation
 
-Learn more in the [official documentation](https://dev.marblism.com).
+Learn more in the [official documentation]().
 
 ## Installation
 
@@ -59,6 +59,3 @@ $ pnpm run start
 
 We reply FAST on our <a target="_blank" href="https://discord.gg/GScNz7kAEu">Discord server</a>.
 
-## Stay in touch
-
-[@marblismAI](https://twitter.com/marblismAI)
